@@ -27,5 +27,33 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         Scanner scanner = new Scanner(System.in);
+        ArrayList<String> list = new ArrayList<>();
+        while(true){
+            String name = String.valueOf(scanner.nextLine());
+            if(name.equals("end")){
+                System.out.println(list);
+                break;
+            } else{
+            list.add(name);
+            for(int i=0; i<(list.size()-1); i++){
+
+                if(list.get(i).equals(name)){
+                    System.out.println("Would you like to delete the existing name?");
+                    String delete = String.valueOf(scanner.nextLine());
+
+                    if(delete.equals("yes")){
+                        list.remove(i);
+                        list.remove(list.indexOf(name)); //removes BOTH names if user says "yes"
+                        System.out.println("It's been removed");
+                    } else{
+                        list.remove(i); //makes sure no name is repeated regardless
+                    }
+        
+                }
+            }
+        }
+        }
+
+ 
     }
 }
